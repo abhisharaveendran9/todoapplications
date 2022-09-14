@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-3"></div>
+        <div class="col-6 border">
+            <h2>Registration</h2>
+            <form action="" class="mt-5" method="post">
+                {%csrf_token%}
+                {{form.as_p}}
+
+<!--                <div class="mb-3">-->
+<!--                    <input type="text" name="firstname" placeholder="enter firstname" class="form-control">-->
+<!--                </div>-->
+<!--                <div class="mb-3">-->
+<!--                    <input type="text" name="lastname" placeholder="enter lastname" class="form-control">-->
+<!--                </div>-->
+<!--                <div class="mb-3">-->
+<!--                    <input type="email" name="email" placeholder="enter email" class="form-control">-->
+<!--                </div>-->
+<!--                <div class="mb-3">-->
+<!--                    <input type="text" name="username" placeholder="enter username" class="form-control">-->
+<!--                </div>-->
+<!--                <div class="mb-3">-->
+<!--                    <input type="password" name="password" placeholder="enter password" class="form-control">-->
+<!--                </div>-->
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-info">SignUp</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>
+</body>
+</html>
