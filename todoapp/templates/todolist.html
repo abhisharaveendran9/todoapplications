@@ -1,0 +1,73 @@
+{% extends 'base.html'%}
+{%block body_block%}
+{%load static%}
+
+<div class="container text-center mt-5">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4 ">
+            <img src="{%static 'images/todos.jpg'%}">
+        </div>
+        <div class="col-4"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            {%if messages%}
+            {%for m in messages%}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>{{m}}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {%endfor%}
+            {%endif%}
+        </div>
+        <div class="col-4"></div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-2"></div>
+        <div class="col-8 border">
+            <h2 style="color:#66004b">List of Todos</h2>
+<!--            #todo_all to list all todo items in one list-->
+<!--            {%for todo in todos%}-->
+<!--            <div>-->
+<!--                {{todo.task_name}}-->
+<!--                {{todo.user}}-->
+<!--                {{todo.status}}-->
+<!--                {{todo.created_date}}-->
+<!--            </div>-->
+<!--            {%endfor%}-->
+
+
+            {%if todos%}
+            <table class="table">
+                <tr>
+                    <th>Task_name</th>
+                    <th>Status</th>
+                    <th>Date</th>
+                    <th>Action</th>
+                </tr>
+                {%for todo in todos%}
+                <tr>
+                    <td>{{todo.task_name}}</td>
+                    <td>{{todo.status}}</td>
+                    <td>{{todo.created_date}}</td>
+                    <td>
+                        <a href="{%url 'edit-todo' todo.id %}" class="btn btn-outline-warning">Edit</a>
+                        <a href="{%url 'todo-detail' todo.id %}" class="btn btn-outline-info">Details</a>
+                        <a href="{%url 'remove-todo' todo.id %}" class="btn btn-outline-danger">Delete</a>
+                    </td>
+                </tr>
+                {%endfor%}
+            </table>
+            {%else%}
+            <h2 class="text-danger">no todos</h2>
+            {%endif%}
+
+        </div>
+        <div class="col-2"></div>
+    </div>
+</div>
+{%endblock%}

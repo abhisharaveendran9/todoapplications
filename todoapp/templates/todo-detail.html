@@ -1,0 +1,18 @@
+{% extends 'base.html'%}
+{%block body_block%}
+
+<div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <h5 style="color:#66004b">Details</h5>
+            <div>
+                {{todo.task_name}}
+                {{todo.status}}
+                {{todo.created_date}}
+            </div>
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>
+{%endblock%}

@@ -1,0 +1,49 @@
+{% extends 'base.html'%}
+{%block body_block%}
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            {%if messages%}
+            {%for m in messages%}
+            {%if m.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>{{m}}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {%endif%}
+            {%if m.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>{{m}}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {%endif%}
+            {%endfor%}
+            {%endif%}
+        </div>
+        <div class="col-4"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4 mt-3">
+            <h2 style="color:#66004b">Welcome User {{request.user}} !!! </h2>
+<!--            <a href="{%url 'signout'%}">Logout</a>-->
+<!--            <a href="{%url 'add-todo'%}">AddYourTodos</a>-->
+<!--            <a href="{%url 'todos-list'%}">ListTodos</a>-->
+        </div>
+        <div class="col-4"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <h5 style="color:#66004b">Pending todos ...</h5>
+            {{todos}}
+        </div>
+        <div class="col-4"></div>
+        <div class="col-4"></div>
+    </div>
+</div>
+{%endblock%}
