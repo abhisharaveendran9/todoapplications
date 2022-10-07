@@ -66,6 +66,9 @@ class LoginView(View):
 
         return render(request,"login.html")
 
+
+
+
 @method_decorator(signin_required,name="dispatch")
 
 class IndexView(TemplateView):
@@ -78,11 +81,14 @@ class IndexView(TemplateView):
     # def get(self, request, *args, **kwargs):
     #     return render(request, "home.html")
 
+
+
 class SignOutView(View):
 
     def get(self,request,*args,**kwargs):
         logout(request)
         return redirect("signin")
+
 
 
 @method_decorator(signin_required,name="dispatch")
@@ -115,6 +121,7 @@ class TodoAddView(CreateView):
     #         return render(request,"add-todo.html",{"form":form})
 
 
+
 @method_decorator(signin_required,name="dispatch")
 
 class TodoListView(ListView):
@@ -136,6 +143,8 @@ def delete_todo(request,*args,**kwargs):
     Todos.objects.get(id=id).delete()
     messages.success(request,"deleted")
     return redirect("todos-list")
+
+
 
 
 @method_decorator(signin_required,name="dispatch")
